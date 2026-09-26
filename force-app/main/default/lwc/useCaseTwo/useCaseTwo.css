@@ -1,0 +1,12 @@
+.error{
+    border: 1px solid red;
+    background: #fbf1f1;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.title{
+    font-size: large;
+    font-weight: 700;
+    margin-bottom: 5px;
+}

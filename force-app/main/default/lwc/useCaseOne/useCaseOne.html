@@ -1,0 +1,37 @@
+<template>
+
+    <lightning-card title="Seach and Filter Utility" icon-name="utility:search">
+        <div class="slds-p-around_medium">
+
+            <div class="slds-grid slds-wrap slds-gutters slds-p-bottom_medium">
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-input label="Search" placeholder="Search using a word" value={searchText}
+                        onchange={handleSearch}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_2-of-4">
+                    <lightning-combobox name="filterBy" label="Filter By" value={category}
+                        placeholder="Select Category to Filter By" options={categoryOptions} onchange={handleCategory}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-combobox name="sortBy" label="Sort By" value={sortBy}
+                        placeholder="Select Field to Sort By" options={sortOptions} onchange={handleSort}>
+                    </lightning-combobox>
+                </div>
+            </div>
+
+            <template if:true={filteredData.length}>
+                <lightning-datatable key-field="id" data={filteredData} columns={columns} hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+
+            <template if:false={filteredData.length}>
+                <div class="noinfo">
+                    No results. Try changing search or filter information!
+                </div>
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>
